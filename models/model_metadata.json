@@ -1,0 +1,130 @@
+{
+ "features": [
+  "vendor_id",
+  "passenger_count",
+  "pickup_month",
+  "pickup_dayofweek",
+  "pickup_hour",
+  "pickup_minute_bucket",
+  "pickup_lon_approx",
+  "pickup_lat_approx",
+  "dropoff_lon_approx",
+  "dropoff_lat_approx",
+  "straight_line_km_approx",
+  "store_fwd",
+  "hav_km",
+  "manhattan_km",
+  "dx_km",
+  "dy_km",
+  "hav_minus_km",
+  "log_km",
+  "log_hav",
+  "bear_sin",
+  "bear_cos",
+  "p_rx",
+  "p_ry",
+  "d_rx",
+  "d_ry",
+  "rx_diff",
+  "ry_diff",
+  "rot_manhattan",
+  "pickup_to_jfk",
+  "dropoff_to_jfk",
+  "pickup_to_lga",
+  "dropoff_to_lga",
+  "pickup_to_midtown",
+  "dropoff_to_midtown",
+  "pickup_to_downtown",
+  "dropoff_to_downtown",
+  "pickup_airport",
+  "dropoff_airport",
+  "pickup_cell",
+  "dropoff_cell",
+  "same_cell"
+ ],
+ "feature_set": "Raw+Dist+Lưới/mốc",
+ "w_lgb": 1.0,
+ "w_xgb": 0.0,
+ "clip_log": null,
+ "lgb_rounds": 1838,
+ "xgb_rounds": 588,
+ "lgb_params": {
+  "learning_rate": 0.06,
+  "num_leaves": 92,
+  "min_data_in_leaf": 365,
+  "feature_fraction": 0.8875664116805573,
+  "bagging_fraction": 0.9818496824692567,
+  "lambda_l2": 17.896547008552975,
+  "max_bin": 255
+ },
+ "xgb_params": {
+  "eta": 0.08,
+  "max_depth": 9,
+  "min_child_weight": 30,
+  "subsample": 0.85,
+  "colsample_bytree": 0.8,
+  "reg_lambda": 5.0,
+  "max_bin": 128
+ },
+ "seed": 42,
+ "split": {
+  "dev_train": 918000,
+  "dev_val": 102000,
+  "hold_out": 180000,
+  "full": 1200000
+ },
+ "rmsle": {
+  "baseline_mean_devval": 0.7258557663540646,
+  "ridge_devval": 0.43695894059200957,
+  "lightgbm_devval": 0.33625871227470905,
+  "xgboost_devval": 0.33740411908386636,
+  "blend_devval": 0.3360614644110612,
+  "holdout": {
+   "lightgbm": 0.33669593386906077,
+   "xgboost": 0.3380003927932864,
+   "final": 0.33669593386906077
+  },
+  "ablation": [
+   {
+    "feature_set": "Raw",
+    "n_features": 12,
+    "rmsle_dev_val": 0.34378,
+    "best_iter": 488
+   },
+   {
+    "feature_set": "Raw+Khoảng cách",
+    "n_features": 21,
+    "rmsle_dev_val": 0.34358,
+    "best_iter": 260
+   },
+   {
+    "feature_set": "Raw+Dist+Lưới/mốc",
+    "n_features": 41,
+    "rmsle_dev_val": 0.34123,
+    "best_iter": 376
+   },
+   {
+    "feature_set": "Tất cả (Raw+Dist+Lưới+Thời gian)",
+    "n_features": 51,
+    "rmsle_dev_val": 0.34124,
+    "best_iter": 247
+   },
+   {
+    "feature_set": "Raw+Dist+Thời gian",
+    "n_features": 31,
+    "rmsle_dev_val": 0.34346,
+    "best_iter": 363
+   }
+  ],
+  "seed_std": 0.00017503065622812193
+ },
+ "ref_score_formula_on_holdout": 52.367930676189985,
+ "note": "RMSLE hold-out chỉ là ước lượng; KHÔNG phải điểm chính thức trên Test.",
+ "versions": {
+  "python": "3.12.3",
+  "lightgbm": "4.7.0",
+  "xgboost": "3.4.1",
+  "numpy": "2.4.4",
+  "pandas": "3.0.2"
+ }
+}

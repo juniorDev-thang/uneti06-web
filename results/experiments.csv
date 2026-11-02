@@ -1,0 +1,23 @@
+model,feature_set,config,eval_set,rmsle,seconds,note
+Baseline: trung bình log,none,{},dev-val,0.725856,0.0,
+Ridge (log),8 đặc trưng,"{""alpha"": 1.0}",dev-val,0.436959,0.1,
+LightGBM(ablation),Raw,"{""learning_rate"": 0.1, ""num_leaves"": 127, ""min_data_in_leaf"": 100, ""feature_fraction"": 0.8, ""bagging_fraction"": 0.9}",dev-val,0.343779,16.2,mẫu 300000
+LightGBM(ablation),Raw+Khoảng cách,"{""learning_rate"": 0.1, ""num_leaves"": 127, ""min_data_in_leaf"": 100, ""feature_fraction"": 0.8, ""bagging_fraction"": 0.9}",dev-val,0.343577,12.0,mẫu 300000
+LightGBM(ablation),Raw+Dist+Lưới/mốc,"{""learning_rate"": 0.1, ""num_leaves"": 127, ""min_data_in_leaf"": 100, ""feature_fraction"": 0.8, ""bagging_fraction"": 0.9}",dev-val,0.341231,24.5,mẫu 300000
+LightGBM(ablation),Tất cả (Raw+Dist+Lưới+Thời gian),"{""learning_rate"": 0.1, ""num_leaves"": 127, ""min_data_in_leaf"": 100, ""feature_fraction"": 0.8, ""bagging_fraction"": 0.9}",dev-val,0.34124,20.4,mẫu 300000
+LightGBM(ablation),Raw+Dist+Thời gian,"{""learning_rate"": 0.1, ""num_leaves"": 127, ""min_data_in_leaf"": 100, ""feature_fraction"": 0.8, ""bagging_fraction"": 0.9}",dev-val,0.343461,17.1,mẫu 300000
+LightGBM(Optuna),chọn,"{""num_leaves"": 137, ""min_data_in_leaf"": 345, ""feature_fraction"": 0.8659969709057025, ""bagging_fraction"": 0.8795975452591109, ""lambda_l2"": 3.1203728088487304, ""max_bin"": 127}",dev-val(60k),0.342892,0.0,trial 0
+LightGBM(Optuna),chọn,"{""num_leaves"": 386, ""min_data_in_leaf"": 120, ""feature_fraction"": 0.8540362888980227, ""bagging_fraction"": 0.7061753482887407, ""lambda_l2"": 19.398197043239886, ""max_bin"": 127}",dev-val(60k),0.344044,0.0,trial 1
+LightGBM(Optuna),chọn,"{""num_leaves"": 92, ""min_data_in_leaf"": 34, ""feature_fraction"": 0.6521211214797689, ""bagging_fraction"": 0.8574269294896714, ""lambda_l2"": 8.638900372842315, ""max_bin"": 255}",dev-val(60k),0.344329,0.0,trial 2
+LightGBM(Optuna),chọn,"{""num_leaves"": 84, ""min_data_in_leaf"": 47, ""feature_fraction"": 0.6831809216468459, ""bagging_fraction"": 0.8368209952651108, ""lambda_l2"": 15.703519227860273, ""max_bin"": 255}",dev-val(60k),0.344095,0.0,trial 3
+LightGBM(Optuna),chọn,"{""num_leaves"": 217, ""min_data_in_leaf"": 22, ""feature_fraction"": 0.8037724259507192, ""bagging_fraction"": 0.7511572371061874, ""lambda_l2"": 1.3010318597055903, ""max_bin"": 255}",dev-val(60k),0.345135,0.0,trial 4
+LightGBM(Optuna),chọn,"{""num_leaves"": 342, ""min_data_in_leaf"": 49, ""feature_fraction"": 0.5488360570031919, ""bagging_fraction"": 0.905269907953647, ""lambda_l2"": 8.803049874792027, ""max_bin"": 255}",dev-val(60k),0.34394,0.0,trial 5
+LightGBM(Optuna),chọn,"{""num_leaves"": 67, ""min_data_in_leaf"": 304, ""feature_fraction"": 0.6293899908000085, ""bagging_fraction"": 0.8987566853061946, ""lambda_l2"": 6.2342215217882195, ""max_bin"": 255}",dev-val(60k),0.343334,0.0,trial 6
+LightGBM(Optuna),chọn,"{""num_leaves"": 92, ""min_data_in_leaf"": 365, ""feature_fraction"": 0.8875664116805573, ""bagging_fraction"": 0.9818496824692567, ""lambda_l2"": 17.896547008552975, ""max_bin"": 255}",dev-val(60k),0.342573,0.0,trial 7
+LightGBM(seed check),chọn,"{""learning_rate"": 0.06, ""num_leaves"": 92, ""min_data_in_leaf"": 365, ""feature_fraction"": 0.8875664116805573, ""bagging_fraction"": 0.9818496824692567, ""lambda_l2"": 17.896547008552975, ""max_bin"": 255}",dev-val,0.341143,0.0,std=0.00018
+LightGBM,chọn,"{""learning_rate"": 0.06, ""num_leaves"": 92, ""min_data_in_leaf"": 365, ""feature_fraction"": 0.8875664116805573, ""bagging_fraction"": 0.9818496824692567, ""lambda_l2"": 17.896547008552975, ""max_bin"": 255, ""best_iter"": 1670}",dev-val,0.336259,275.8,
+XGBoost,chọn,"{""eta"": 0.08, ""max_depth"": 9, ""min_child_weight"": 30, ""subsample"": 0.85, ""colsample_bytree"": 0.8, ""reg_lambda"": 5.0, ""max_bin"": 128, ""best_iter"": 534}",dev-val,0.337404,78.0,
+Blend LightGBM+XGBoost,chọn,"{""w_lgb"": 0.7000000000000001, ""w_xgb"": 0.29999999999999993}",dev-val,0.336061,0.0,
+Hold-out: LightGBM,chọn,{},hold-out,0.336696,0.0,
+Hold-out: XGBoost,chọn,{},hold-out,0.338,0.0,
+Hold-out: Mô hình cuối,chọn,"{""w_lgb"": 1.0}",hold-out,0.336696,0.0,

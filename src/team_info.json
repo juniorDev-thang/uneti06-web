@@ -1,0 +1,18 @@
+{
+  "team_code": "UNETI06",
+  "team_name": "Đội UNETI06",
+  "members": [
+    {
+      "name": "Nguyễn Anh Vũ",
+      "role": "Khám phá dữ liệu, xử lý dữ liệu, xây dựng đặc trưng"
+    },
+    {
+      "name": "Trần Đức Thắng",
+      "role": "Huấn luyện, đánh giá mô hình, file kết quả Test"
+    },
+    {
+      "name": "Đào Mai Nguyên",
+      "role": "Ứng dụng web, báo cáo, video demo"
+    }
+  ]
+}

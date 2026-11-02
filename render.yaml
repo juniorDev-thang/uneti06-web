@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: uneti06-nyc-taxi-ai
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health

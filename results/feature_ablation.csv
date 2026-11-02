@@ -1,0 +1,6 @@
+feature_set,n_features,rmsle_dev_val,best_iter
+Raw,12,0.34378,488
+Raw+Khoảng cách,21,0.34358,260
+Raw+Dist+Lưới/mốc,41,0.34123,376
+Tất cả (Raw+Dist+Lưới+Thời gian),51,0.34124,247
+Raw+Dist+Thời gian,31,0.34346,363

@@ -1,0 +1,33 @@
+{
+  "examples": [
+    {
+      "vendor_id": 1,
+      "passenger_count": 1,
+      "pickup_month": 3,
+      "pickup_dayofweek": 1,
+      "pickup_hour": 16,
+      "pickup_minute_bucket": 15,
+      "pickup_lon_approx": -73.98,
+      "pickup_lat_approx": 40.77,
+      "dropoff_lon_approx": -73.96,
+      "dropoff_lat_approx": 40.78,
+      "straight_line_km_approx": 2.0,
+      "store_and_fwd_flag": "N"
+    },
+    {
+      "vendor_id": 2,
+      "passenger_count": 1,
+      "pickup_month": 6,
+      "pickup_dayofweek": 3,
+      "pickup_hour": 9,
+      "pickup_minute_bucket": 15,
+      "pickup_lon_approx": -73.97,
+      "pickup_lat_approx": 40.78,
+      "dropoff_lon_approx": -73.78,
+      "dropoff_lat_approx": 40.64,
+      "straight_line_km_approx": 22.0,
+      "store_and_fwd_flag": "N"
+    }
+  ],
+  "source": "Two pre-trip input rows selected from supplied labeled Train, without trip_id and trip_duration"
+}
